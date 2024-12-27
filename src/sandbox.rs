@@ -20,9 +20,10 @@ fn f_ad(t_dual: (f64, f64)) -> (f64, f64) {
     (primal2, tangent2)
 }
 
+#[derive(Debug, Clone, Copy)]
 struct Dual {
-primal: f64,
-tangent: f64,
+    primal: f64,
+    tangent: f64,
 }
 
 impl Dual {
@@ -82,4 +83,9 @@ pub fn run() {
     println!("Numeric: {}", df_num(t, h));
 
     println!("Automatic: {}", f_ad((t, 1.0)).1);
+
+    println!(
+        "Automatic w/overloading: {}",
+        f_ad_dual(Dual::var(t)).tangent
+    );
 }
