@@ -1,5 +1,5 @@
-mod playground;
+mod sandbox;
 
 fn main() {
-    playground::run();
+    sandbox::run();
 }
